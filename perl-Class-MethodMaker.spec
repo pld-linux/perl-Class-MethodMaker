@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define		pdir	Class
-%define		pnam	MethodMaker
+%define	pdir	Class
+%define	pnam	MethodMaker
 Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker

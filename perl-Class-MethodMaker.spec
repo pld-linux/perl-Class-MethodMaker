@@ -39,8 +39,8 @@ warto¶ci to parametry dla tych metod).
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-perl -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
-perl Makefile.PL
+%{__perl} -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
+%{__perl} Makefile.PL
 %{__make}
 %{!?_without_tests:%{__make} test}
 

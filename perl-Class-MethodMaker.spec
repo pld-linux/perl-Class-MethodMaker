@@ -39,10 +39,11 @@ warto¶ci to parametry dla tych metod).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-
-%build
 %{__perl} -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
 %{__perl} -pi -e 's/^(use Exporter\s+5.56)2\b/$1_2/' lib/Class/MethodMaker/Engine.pm
+mv -f t/0-signature.t{,.blah}
+
+%build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}

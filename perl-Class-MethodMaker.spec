@@ -8,7 +8,7 @@
 Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
-Version:	1.08
+Version:	1.10
 Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl

@@ -9,7 +9,7 @@ Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
 Version:	2.02
-Release:	2
+Release:	3
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -42,6 +42,7 @@ warto¶ci to parametry dla tych metod).
 
 %build
 %{__perl} -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
+%{__perl} -pi -e 's/^(use Exporter\s+5.56)2\b/$1_2/' lib/Class/MethodMaker/Engine.pm
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}

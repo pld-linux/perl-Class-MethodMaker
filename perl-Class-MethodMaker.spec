@@ -42,7 +42,7 @@ warto¶ci to parametry dla tych metod).
 %build
 %{__perl} -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make}
 %{!?_without_tests:%{__make} test}
 

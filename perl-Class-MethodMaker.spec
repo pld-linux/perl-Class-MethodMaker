@@ -9,12 +9,12 @@ Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
 Version:	1.10
-Release:	1
+Release:	2
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	perl >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-26
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,7 +40,8 @@ warto¶ci to parametry dla tych metod).
 
 %build
 %{__perl} -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make}
 %{!?_without_tests:%{__make} test}
 
@@ -54,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{perl_sitelib}/Class/*.pm
-%dir %{perl_sitelib}/auto/Class
-%{perl_sitelib}/auto/Class/MethodMaker
+%{perl_vendorlib}/Class/*.pm
+%dir %{perl_vendorlib}/auto/Class
+%{perl_vendorlib}/auto/Class/MethodMaker
 %{_mandir}/man3/*

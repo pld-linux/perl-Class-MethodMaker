@@ -8,17 +8,16 @@
 Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
-Version:	2.02
-Release:	4
+Version:	2.04
+Release:	0.1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	8fa59f63025596a9ca1f6ab9986bd561
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}-1.tar.gz
+# Source0-md5:	5e8ce86f548cf6f2e8e00da057767a51
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Provides:	perl(Class::MethodMaker) = %{version}
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,30 +39,36 @@ warto¶ci to parametry dla tych metod).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%{__perl} -pi -e 's/5\.00307/5.003_07/' lib/Class/MethodMaker.pm
 %{__perl} -pi -e 's/^(use Exporter\s+5.56)2\b/$1_2/' lib/Class/MethodMaker/Engine.pm
 mv -f t/0-signature.t{,.blah}
 
 %build
-%{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
-%{__make}
+%{__perl} Build.PL \
+	installdirs=vendor \
+	destdir=$RPM_BUILD_ROOT
+./Build
 
-%{?with_tests:%{__make} test}
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{perl_vendorlib}/%{pdir}/*.pm
-%{perl_vendorlib}/%{pdir}/%{pnam}
-%dir %{perl_vendorlib}/auto/%{pdir}
-%{perl_vendorlib}/auto/%{pdir}/%{pnam}
+%{perl_vendorarch}/Class/*.pm
+%dir %{perl_vendorarch}/Class/MethodMaker
+%{perl_vendorarch}/Class/MethodMaker/*.pm
+%dir %{perl_vendorarch}/auto/Class/MethodMaker
+%{perl_vendorarch}/auto/Class/MethodMaker/array
+%{perl_vendorarch}/auto/Class/MethodMaker/hash
+%{perl_vendorarch}/auto/Class/MethodMaker/scalar
+%dir %{perl_vendorarch}/auto/Class/MethodMaker/Engine
+%{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.al
+%{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.ix
+%attr(755,root,root) %{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.so
 %{_mandir}/man3/*

@@ -1,11 +1,15 @@
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Class
-%define	pnam	MethodMaker
+%define		pdir	Class
+%define		pnam	MethodMaker
 Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
-Name:		perl-%{pdir}-%{pnam}
+Name:		perl-Class-MethodMaker
 Version:	1.06
-Release:	2
+Release:	3
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -50,6 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{perl_sitelib}/%{pdir}/*.pm
-%{perl_sitelib}/auto/%{pdir}/%{pnam}
+%{perl_sitelib}/Class/*.pm
+%dir %{perl_sitelib}/auto/Class
+%{perl_sitelib}/auto/Class/MethodMaker
 %{_mandir}/man3/*

@@ -39,6 +39,7 @@ warto¶ci to parametry dla tych metod).
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 mv -f t/0-signature.t{,.blah}
+mv -f end.pod lib/Class/MethodMaker/
 
 %build
 %{__perl} generate.PL

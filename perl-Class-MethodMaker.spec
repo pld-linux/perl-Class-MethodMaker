@@ -8,17 +8,15 @@
 Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
-Version:	2.04
-Release:	0.1
+Version:	2.07
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}-1.tar.gz
-# Source0-md5:	5e8ce86f548cf6f2e8e00da057767a51
-BuildRequires:	perl-Module-Build
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	fe65529977de6a7ccac86c00ac1f8f1f
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-Provides:	perl(Class::MethodMaker) = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,21 +38,22 @@ warto¶ci to parametry dla tych metod).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%{__perl} -pi -e 's/^(use Exporter\s+5.56)2\b/$1_2/' lib/Class/MethodMaker/Engine.pm
 mv -f t/0-signature.t{,.blah}
 
 %build
-%{__perl} Build.PL \
-	installdirs=vendor \
-	destdir=$RPM_BUILD_ROOT
-./Build
+%{__perl} generate.PL
+%{__perl} -MExtUtils::MakeMaker -wle \
+	'WriteMakefile(NAME=>"Class::MethodMaker",
+	PL_FILES=>{}, VERSION=>"%{version}")' \
+	INSTALLDIRS=vendor
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,5 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Class/MethodMaker/Engine
 %{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.al
 %{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.ix
-%attr(755,root,root) %{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.so
+%attr(755,root,root) %{perl_vendorarch}/auto/Class/MethodMaker/*.so
 %{_mandir}/man3/*

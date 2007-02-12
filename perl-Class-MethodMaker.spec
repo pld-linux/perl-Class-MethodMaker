@@ -6,7 +6,7 @@
 %define		pdir	Class
 %define		pnam	MethodMaker
 Summary:	Class::MethodMaker - a module for creating generic methods
-Summary(pl):	Class::MethodMaker - modu³ do tworzenia ogólnych metod
+Summary(pl.UTF-8):   Class::MethodMaker - moduÅ‚ do tworzenia ogÃ³lnych metod
 Name:		perl-Class-MethodMaker
 Version:	2.08
 Release:	1
@@ -29,13 +29,13 @@ MethodMaker and whose values tell method maker what methods to make.
 (methods that write methods) and the values are the arguments to those
 methods.
 
-%description -l pl
-Ten modu³ rozwi±zuje problem pisania bazylionów metod get/set, które
-s± wszystkie takie same. Parametrem 'use' jest hasz, którego klucze s±
-nazwami typów do ogólnych metod, wygenerowanych przez MethodMakera, a
-warto¶ci mówi± modu³owi, które metody utworzyæ (bardziej precyzyjnie:
-klucze s± nazwami metod MethodMakera (metod, które tworz± metody), a
-warto¶ci to parametry dla tych metod).
+%description -l pl.UTF-8
+Ten moduÅ‚ rozwiÄ…zuje problem pisania bazylionÃ³w metod get/set, ktÃ³re
+sÄ… wszystkie takie same. Parametrem 'use' jest hasz, ktÃ³rego klucze sÄ…
+nazwami typÃ³w do ogÃ³lnych metod, wygenerowanych przez MethodMakera, a
+wartoÅ›ci mÃ³wiÄ… moduÅ‚owi, ktÃ³re metody utworzyÄ‡ (bardziej precyzyjnie:
+klucze sÄ… nazwami metod MethodMakera (metod, ktÃ³re tworzÄ… metody), a
+wartoÅ›ci to parametry dla tych metod).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}

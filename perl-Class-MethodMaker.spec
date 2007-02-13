@@ -6,7 +6,7 @@
 %define		pdir	Class
 %define		pnam	MethodMaker
 Summary:	Class::MethodMaker - a module for creating generic methods
-Summary(pl.UTF-8):   Class::MethodMaker - moduł do tworzenia ogólnych metod
+Summary(pl.UTF-8):	Class::MethodMaker - moduł do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
 Version:	2.08
 Release:	1

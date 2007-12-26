@@ -13,7 +13,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Class-MethodMaker/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	97181580315dd9776eafae67827c909f
 URL:		http://search.cpan.org/dist/Class-MethodMaker/
 BuildRequires:	perl-devel >= 1:5.8.0

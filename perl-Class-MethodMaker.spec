@@ -16,7 +16,7 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	99435d78e0a1754b102fe39597c6c3df
 URL:		http://search.cpan.org/dist/Class-MethodMaker/
-%{?with_tests:BuildRequires	perl-IPC-Run >= 0.89}
+%{?with_tests:BuildRequires:	perl-IPC-Run >= 0.89}
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

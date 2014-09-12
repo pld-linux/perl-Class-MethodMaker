@@ -77,5 +77,4 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.al
 %{perl_vendorarch}/auto/Class/MethodMaker/Engine/*.ix
 %attr(755,root,root) %{perl_vendorarch}/auto/Class/MethodMaker/*.so
-%{perl_vendorarch}/auto/Class/MethodMaker/MethodMaker.bs
 %{_mandir}/man3/*

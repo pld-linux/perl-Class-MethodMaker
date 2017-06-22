@@ -1,0 +1,11 @@
+--- Class-MethodMaker-2.24/Generate.pm~	2015-02-28 08:56:20.000000000 +0100
++++ Class-MethodMaker-2.24/Generate.pm	2017-06-22 23:06:33.298428165 +0200
+@@ -10,7 +10,7 @@
+ use base qw( Exporter );
+ our @EXPORT_OK = qw( %GENERATE );
+ 
+-our %GENERATE = ( map {; ($output = basename $_) =~ s/\.m/.pm/;
++our %GENERATE = ( map {; (my $output = basename $_) =~ s/\.m/.pm/;
+                        $_ => catfile 'lib', 'Class', 'MethodMaker', $output }
+                   grep /\.m$/, glob(catfile 'components', '*') );
+ 

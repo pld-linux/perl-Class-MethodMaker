@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Class
 %define		pnam	MethodMaker
 Summary:	Class::MethodMaker - a module for creating generic methods

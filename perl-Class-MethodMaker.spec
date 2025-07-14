@@ -40,7 +40,7 @@ wartości to parametry dla tych metod).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 mv -f end.pod lib/Class/MethodMaker/
 
 %build

@@ -7,15 +7,15 @@
 Summary:	Class::MethodMaker - a module for creating generic methods
 Summary(pl.UTF-8):	Class::MethodMaker - moduł do tworzenia ogólnych metod
 Name:		perl-Class-MethodMaker
-Version:	2.24
-Release:	9
+Version:	2.25
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	6fac1ed1fea8a4e42d36a4d07c8bfa09
+Source0:	https://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	2df602f727ac124a335db3ecc546aaa9
 Patch0:		build.patch
-URL:		http://search.cpan.org/dist/Class-MethodMaker/
+URL:		https://search.cpan.org/dist/Class-MethodMaker/
 %{?with_tests:BuildRequires:	perl-IPC-Run >= 0.89}
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
